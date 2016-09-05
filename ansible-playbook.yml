@@ -1,5 +1,5 @@
 ---
-- hosts: 52.23.240.187
+- hosts: Servers
   remote_user: ubuntu
   become: true
   become_user: root
