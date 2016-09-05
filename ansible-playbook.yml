@@ -1,5 +1,5 @@
 ---
-- hosts: Servers
+- hosts: Web_Servers
   remote_user: ubuntu
   become: true
   become_user: root

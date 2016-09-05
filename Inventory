@@ -1,1 +1,2 @@
-node0 ansible_host=52.91.231.238 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/DevOps-AWS.pem
+[Web_Servers]
+node0 ansible_host=54.172.206.232 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/DevOps-AWS.pem
