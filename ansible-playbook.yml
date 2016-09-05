@@ -1,0 +1,15 @@
+---
+- hosts: 52.23.240.187
+  remote_user: ubuntu
+  become: true
+  become_user: root
+  vars:
+    http_port: 80
+
+  tasks:
+  - name: apt-get update
+    apt: update_cache=yes
+  - name: Install nginx
+    apt: name=nginx state=present
+  - name: start server
+    shell: /etc/init.d/nginx start
