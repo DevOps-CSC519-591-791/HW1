@@ -43,7 +43,7 @@ ec2.runInstances(params, function(err, data) {
 
       // Concatenate Inventory record
       // eg. node0 ansible_host=192.168.1.103 ansible_user=vagrant ansible_ssh_private_key_file=./keys/node0.key
-      var str1 = "[Web Servers]\nnode0 ansible_host=";
+      var str1 = "[Web_Servers]\nnode0 ansible_host=";
       var str2 = " ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/DevOps-AWS.pem";
       var record = str1.concat(ipAddress, str2);
       // Create Inventory file
