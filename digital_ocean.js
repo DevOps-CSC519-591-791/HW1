@@ -27,7 +27,7 @@ var client =
 			"size":"512mb",
 			"image":imageName,
 			// Obtain by `list_ssh_keys.rb`.
-			"ssh_keys":[3277379],
+			"ssh_keys":[3287924],
 			//"ssh_keys":null,
 			"backups":false,
 			"ipv6":false,
@@ -69,7 +69,7 @@ client.createDroplet(name, region, image, function(err, resp, body)
 				// Concatenate Inventory record
 		        // eg. node0 ansible_host=192.168.1.103 ansible_user=vagrant ansible_ssh_private_key_file=./keys/node0.key
 		        var str1 = "\nnode1 ansible_host=";
-		        var str2 = " ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/DevOps_DigitalOcean_rsa";
+		        var str2 = " ansible_user=root ansible_ssh_private_key_file=~/.ssh/DevOps_DigitalOcean_rsa2";
 		        var record = str1.concat(ipAddress, str2);
 
 		        // Update Inventory file
