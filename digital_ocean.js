@@ -34,7 +34,7 @@ var client =
 			"user_data":null,
 			"private_networking":null
 		};
-
+  		console.log("\n=====DigitalOcean Droplet=====");
 		console.log("Attempting to create: "+ JSON.stringify(data) );
 		needle.post("https://api.digitalocean.com/v2/droplets", data, {headers:headers,json:true}, onResponse );
 	},
@@ -55,7 +55,7 @@ client.createDroplet(name, region, image, function(err, resp, body)
 	{
 		dropletId = body.droplet.id;
 		console.log("\ndropletId: ", dropletId);
-		console.log("\nSleep 40 seconds before retrieving IP address...");
+		console.log("\nWait 40 seconds before retrieving IP address...");
 		sleep.sleep(40);
 
 		// Retrieve droplet IP and append a new record to Iventory file.

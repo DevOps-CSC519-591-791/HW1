@@ -4,6 +4,9 @@ var AWS = require('aws-sdk');
 // Load FileSystem for Node.js API
 var fs = require('fs');
 
+// Usage: Waiting for the initialization of droplet
+var sleep = require('sleep');
+
 // Set your region for future requests.
 AWS.config.region = 'us-east-1';
 var ec2 = new AWS.EC2();
@@ -22,6 +25,7 @@ ec2.runInstances(params, function(err, data) {
   }
 
   var instanceId = data.Instances[0].InstanceId;
+  console.log("=====AWS EC2 instance=====");
   console.log("Created instance", instanceId);
   
   // Add tags to the instance
@@ -32,6 +36,9 @@ ec2.runInstances(params, function(err, data) {
     console.log("Tagging instance", err ? "failure" : "success");
   });
 
+  console.log("\nWait 40 seconds before retrieving IP address...");
+  sleep.sleep(40);
+
   // Wait for instance running and fetch public ip address
   var params = { InstanceIds: [instanceId] };
   ec2.waitFor('instanceExists', params, function(err, data) {
@@ -39,7 +46,7 @@ ec2.runInstances(params, function(err, data) {
     else {
       var ipAddress = data.Reservations[0].Instances[0].PublicIpAddress;
       console.log("\nInstance detail:");
-      console.log("\nPublic IP Address:", ipAddress);
+      console.log("Public IP Address:", ipAddress);
 
       // Concatenate Inventory record
       // eg. node0 ansible_host=192.168.1.103 ansible_user=vagrant ansible_ssh_private_key_file=./keys/node0.key
