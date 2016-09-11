@@ -1,5 +1,11 @@
 {
-    "dependencies": {
-        "aws-sdk": ">= 2.5.5"
+	"name": "DevOps-HW1",
+	"version": "0.0.1",
+	"author": "Zhewei Hu",
+    "devDependencies": {
+        "aws-sdk": ">= 2.5.5",
+        "fs": "latest",
+        "sleep": "latest",
+        "needle": "latest"
     }
 }
